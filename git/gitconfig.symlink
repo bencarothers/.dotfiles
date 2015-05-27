@@ -1,0 +1,38 @@
+# Sample gitconfig
+#
+
+[hub]
+        protocol = https
+[user]
+        name = Ben Carothers
+        email = benjamin.carothers13@ncf.edu
+[credential]
+        helper = osxkeychain
+[alias]
+        co = checkout
+        wtf     = !$ZSH/bin/git-wtf
+        count   = !git shortlog -sn
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+[apply]
+        whitespace = nowarn
+[mergetool]
+        keepBackup = false
+[difftool]
+        prompt = false
+[help]
+        autocorrect = 1
+[commit]
+  template = ~/.gitmessage
+[push]
+        # See `git help config` (search for push.default)
+        # for more information on different options of the below setting.
+        #
+        # Setting to git 2.0 default to suppress warning message
+        default = simple
