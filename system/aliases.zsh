@@ -10,11 +10,11 @@ then
   alias la='gls -A --color'
 fi
 
-alias s="osascript ~/dotfiles/SpotifyControl/SpotifyControl.scpt"
-alias sn="osascript ~/dotfiles/SpotifyControl/SpotifyControl.scpt next"
-alias sp="osascript ~/dotfiles/SpotifyControl/SpotifyControl.scpt prev"
+alias s="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl"
+alias sn="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt next"
+alias sp="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt prev"
 # Now playing: Cher - Believe
-alias sb="osascript ~/dotfiles/SpotifyControl/SpotifyControl.scpt start spotify:track:2goLsvvODILDzeeiT4dAoR"
+alias sb="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt start spotify:track:2goLsvvODILDzeeiT4dAoR"
 
 # Unix
 alias tlf="tail -f"
@@ -115,11 +115,6 @@ command -v md5sum > /dev/null || alias md5sum="md5"
 
 # OS X has no `sha1sum`, so use `shasum` as a fallback
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
-
-# JavaScriptCore REPL
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
-[ -e "${jscbin}" ] && alias jsc="${jscbin}";
-unset jscbin;
 
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
