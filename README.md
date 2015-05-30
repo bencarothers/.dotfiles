@@ -1,6 +1,6 @@
 # .dotfiles
 
-![vim]https://github.com/bencarothers/.dotfiles/blob/master/screenshot.png)
+![vim](https://github.com/bencarothers/.dotfiles/blob/master/screenshot.png)
 ## install
 
 Run this:
