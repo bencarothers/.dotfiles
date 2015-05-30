@@ -24,6 +24,8 @@ alias ...='../..'
 alias l='ls'
 alias ll='ls -al'
 alias lh='ls -Alh'
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias -g G='| grep'
 alias -g M='| less'
 alias -g ONE="| awk '{ print \$1}'"

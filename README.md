@@ -1,2 +1,2 @@
 # .dotfiles
-I'm gonna host my dotfiles here eventually 
+A quick start up pack for new machines
