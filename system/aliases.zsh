@@ -10,7 +10,7 @@ then
   alias la='gls -A --color'
 fi
 
-alias s="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl"
+alias s="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt"
 alias sn="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt next"
 alias sp="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt prev"
 # Now playing: Cher - Believe
@@ -24,6 +24,7 @@ alias ...='../..'
 alias l='ls'
 alias ll='ls -al'
 alias lh='ls -Alh'
+
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias -g G='| grep'
@@ -33,9 +34,6 @@ alias e="$EDITOR"
 alias v="$VISUAL"
 # because typing is hard
 alias bim="vim"
-
-# fix for passing params to rake tasks
-alias rake='noglob rake'
 
 # git
 alias g='git'
@@ -51,8 +49,6 @@ alias gpr='git pull-request'
 alias b="bundle"
 alias bi="bundle install"
 alias be="bundle exec"
-# because i make this typo a lot
-alias kbundle="bundle"
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
@@ -66,10 +62,8 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
 alias g="git"
 alias h="history"
 alias j="jobs"
@@ -81,7 +75,6 @@ else # OS X `ls`
   colorflag="-G"
 fi
 
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
@@ -90,9 +83,6 @@ alias week='date +%V'
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -111,12 +101,6 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 
 # Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
-
-# OS X has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum="md5"
-
-# OS X has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
@@ -160,11 +144,6 @@ alias badge="tput bel"
 # find . -name .gitattributes | map dirname
 alias map="xargs -n1"
 
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-  alias "$method"="lwp-request -m '$method'"
-done
-
 # Make Grunt print stack traces by default
 command -v grunt > /dev/null && alias grunt="grunt --stack"
 
@@ -178,6 +157,3 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
-# Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
