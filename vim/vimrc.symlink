@@ -1,32 +1,22 @@
-" don't bother with vi compatibility
 set nocompatible
-" configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-" install Vundle bundles
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
-call vundle#end()
-
-" ensure ftdetect et al work by including this after the Vundle stuff
-filetype plugin indent on
-
 set shell=/bin/bash
-runtime macros/matchit.vim
+let $PATH='/usr/local/bin:' . $PATH
 
+runtime macros/matchit.vim
 set ttyfast
 set lazyredraw
 
-let $PATH='/usr/local/bin:' . $PATH
+" configure Vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+call vundle#end()
 
-:au FocusLost * :wa "Save on focus lost
-
-" Sessions
+filetype plugin indent on
 let g:session_autoload = 'no'
 
 " Leader Mappings
@@ -36,10 +26,11 @@ map <Leader>q :qall<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gp :Gpush<CR>
+"key to insert mode with paste using F2 key
+map <Leader>i :set paste<CR>i
+au InsertLeave * set nopaste
 
-" Toggle nerdtree with F10
 map <F10> :NERDTreeToggle<CR>
-" Current file in nerdtree
 map <F9> :NERDTreeFind<CR>
 
 " Reduce timeout after <ESC> is recvd. This is only a good idea on fast links.
@@ -47,18 +38,10 @@ set ttimeout
 set ttimeoutlen=20
 set notimeout
 
-" Edit another file in the same directory as the current file
-" uses expression to extract path from current file's path
-
-" highlight vertical column of cursor
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline
 set cursorline
 
-"key to insert mode with paste using F2 key
-map <F2> :set paste<CR>i
-" Leave paste mode on exit
-au InsertLeave * set nopaste
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nocompatible  " Use Vim settings, rather then Vi settings
@@ -83,9 +66,12 @@ let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
 let g:gitgutter_enabled = 0
 
+let delimitMate_expand_cr = 1
+
+nmap <F8> :TagbarToggle<CR>
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
@@ -98,8 +84,6 @@ autocmd!
 autocmd FileType text setlocal textwidth=78
 
 " When editing a file, always jump to the last known cursor position.
-" Don't do it for commit messages, when the position is invalid, or when
-" inside an event handler (happens when dropping a file on gvim).
 autocmd BufReadPost *
 \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
 \   exe "normal g`\"" |
@@ -120,9 +104,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-let g:rspec_command = 'call Send_to_Tmux("bin/rspec {spec}\n")'
-let g:rspec_runner = "os_x_iterm"
-
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
@@ -132,6 +113,7 @@ set list listchars=tab:»·,trail:·
 
 syntax on
 syntax enable
+
 let g:solarized_termtrans = 1
 set background=dark
 colorscheme solarized
@@ -154,8 +136,6 @@ set undolevels=1000
 set undoreload=10000
 
 " Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
 set wildmode=list:longest,list:full
 set complete=.,w,t
 function! InsertTabWrapper()
@@ -173,6 +153,3 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_enable_highlighting=0

@@ -1,0 +1,4 @@
+function bot() {
+    echo
+    echo -e "$COL_GREEN\[._.]/$COL_RESET - "$1
+}

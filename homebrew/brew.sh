@@ -1,26 +1,159 @@
-#!/bin/sh
-#
-# Homebrew
-#
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
+#!/usr/bin/env bash
 
-# Check for Homebrew
-if test ! $(which brew)
-then
-  echo "  Installing Homebrew for you."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# include my library helpers for colorized echo and require_brew, etc
+source ../functions/brewHelper
+
+# Ask for the administrator password upfront
+bot "I need you to enter your sudo password so I can install some things:"
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+bot "OK, let's roll..."
+
+#####
+# install homebrew
+#####
+
+running "checking homebrew install"
+brew_bin=$(which brew) 2>&1 > /dev/null
+if [[ $? != 0 ]]; then
+  action "installing homebrew"
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    if [[ $? != 0 ]]; then
+      error "unable to install homebrew, script $0 abort!"
+      exit -1
+  fi
+fi
+ok
+
+running "checking brew-cask install"
+output=$(brew tap | grep cask)
+if [[ $? != 0 ]]; then
+  action "installing brew-cask"
+  require_brew caskroom/cask/brew-cask
+fi
+ok
+
+###############################################################################
+#Install command-line tools using Homebrew                                    #
+###############################################################################
+# Make sure we’re using the latest Homebrew
+running "updating homebrew"
+brew update
+ok
+
+bot "before installing brew packages, we can upgrade any outdated packages."
+read -r -p "run brew upgrade? [y|N] " response
+if [[ $response =~ ^(y|yes|Y) ]];then
+    # Upgrade any already-installed formulae
+    action "upgrade brew packages..."
+    brew upgrade
+    ok "brews updated..."
+else
+    ok "skipped brew package upgrades.";
 fi
 
-# Install homebrew packages
-brew install grc coreutils spark
-brew tap phinze/cask
-brew install brew-cask
-brew install wget
-brew cask install google-chrome
-brew cask install macvim
-brew cask install alfred
-brew cask install virtualbox
-brew cask install textexpander
+bot "installing homebrew command-line tools"
 
-exit 0
+
+# Install GNU core utilities (those that come with OS X are outdated)
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+require_brew coreutils
+# Install some other useful utilities like `sponge`
+require_brew moreutils
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
+require_brew findutils
+
+# Install Bash 4
+# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+#install bash
+#install bash-completion
+
+# Install RingoJS and Narwhal
+# Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
+#install ringojs
+#install narwhal
+
+# Install other useful binaries
+require_brew ack
+# Beanstalk http://kr.github.io/beanstalkd/
+#require_brew beanstalkd
+# ln -sfv /usr/local/opt/beanstalk/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.beanstalk.plist
+
+# dos2unix converts windows newlines to unix newlines
+require_brew dos2unix
+require_brew gawk
+require_brew gifsicle
+require_brew git
+require_brew git-flow
+require_brew gnupg
+require_brew gnu-sed --default-names
+require_brew homebrew/dupes/grep
+require_brew hub
+require_brew imagemagick
+require_brew imagesnap
+require_brew jq
+require_brew maven
+require_brew memcached
+require_brew nmap
+require_brew node
+require_brew redis
+require_brew homebrew/dupes/screen
+require_brew tig
+require_brew tree
+require_brew ttyrec
+require_brew vim --override-system-vi
+require_brew watch
+require_brew wget --enable-iri
+
+bot "if you would like to start memcached at login, run this:"
+echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
+bot "if you would like to start memcached now, run this:"
+echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
+
+###############################################################################
+# Native Apps (via brew cask)                                                 #
+###############################################################################
+bot "installing GUI tools via homebrew casks..."
+brew tap caskroom/versions > /dev/null 2>&1
+
+
+require_cask adium
+require_cask spotify 
+require_cask skype 
+require_cask kindle 
+require_cask google-chrome 
+require_cask lightpaper 
+require_cask cheatsheet
+require_cask bettertouchtool
+
+# tools
+require_cask java
+require_cask diffmerge
+require_cask ireadfast
+require_cask iterm2
+require_cask macvim
+require_cask sizeup
+require_cask sketchup
+
+require_cask the-unarchiver
+require_cask transmission
+require_cask vlc
+require_cask xquartz
+
+# development browsers
+require_cask firefox
+require_cask google-chrome
+require_cask google-chrome-canary
+require_cask torbrowser
+
+# virtal machines
+require_cask virtualbox
+
+bot "Alright, cleaning up homebrew cache..."
+# Remove outdated versions from the cellar
+brew cleanup > /dev/null 2>&1
+bot "All clean"
