@@ -1,25 +1,69 @@
 set nocompatible
-filetype on " without this vim emits a zero exit status, later, because of :ft off
-set shell=/bin/bash
-let $PATH='/usr/local/bin:' . $PATH
-
-runtime macros/matchit.vim
-set ttyfast
-set lazyredraw
-
-" configure Vundle
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
+"
+" =============== Vundle Initialization ===============
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
+  if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
+  endif
 call vundle#end()
 
-filetype plugin indent on
-let g:session_autoload = 'no'
+filetype plugin indent on 
 
-" Leader Mappings
+" ================ General Config ====================
+
+set number                     " Line numbers are good
+set backspace=indent,eol,start " Allow backspace in insert mode
+set history=1000               " Store lots of :cmdline history
+set showcmd                    " Show incomplete cmds down the bottom
+set showmode                   " Show current mode down the bottom
+set gcr=a:blinkon0             " Disable cursor blink
+set visualbell                 " No sounds
+set autoread                   " Reload files changed outside vim
+set ttyfast                    " Improves redrawing"
+set lazyredraw                 " don't redraw when don't have to"
+set hidden                     " allows unwritten changes to a file
+set splitbelow                 " natural split settings
+set splitright
+set incsearch                  " do incremental searching
+set hlsearch                   " highlight matches
+set laststatus=2               " Always display the status line
+set autowrite                  " Automatically :write before running commands
+syntax on
+
+cmap w!! w !sudo tee % >/dev/null         " w!! to write a file as sudo"
+
+" ============= Appearance ===============
+
+" Airline
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.space = "\ua0"
+let g:airline_theme='solarized'
+set t_Co=256
+
+:set smartcase
+:set ignorecase
+:set noantialias
+
+" Color scheme
+colorscheme solarized
+set background=dark
+set encoding=utf-8
+
+set list listchars=tab:»·,trail:·" Display extra whitespace"
+
+" Highlight line number of where cursor currently is
+hi CursorLineNr guifg=#050505
+
+" ==================Leader Mappings==================
+
 map <Space> <leader>
 map <Leader>w :update<CR>
 map <Leader>q :qall<CR>
@@ -28,114 +72,45 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gp :Gpush<CR>
 "key to insert mode with paste using F2 key
 map <Leader>i :set paste<CR>i
+"Leave paste mode on exit
 au InsertLeave * set nopaste
 
-map <F10> :NERDTreeToggle<CR>
-map <F9> :NERDTreeFind<CR>
+" ================ Turn Off Swap Files ==============
 
-" Reduce timeout after <ESC> is recvd. This is only a good idea on fast links.
-set ttimeout
-set ttimeoutlen=20
-set notimeout
-
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline
-set cursorline
-
-
-set backspace=2   " Backspace deletes like most programs in insert mode
-set nocompatible  " Use Vim settings, rather then Vi settings
+set noswapfile
 set nobackup
-set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=500
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set hlsearch      " highlight matches
-set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
+set nowb
 
-" Fuzzy finder: ignore stuff that can't be opened, and generated files
-let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
-" in case you forgot to sudo
-cnoremap w!! %!sudo tee > /dev/null %
+" ================ Persistent Undo ==================
 
-" plugin settings
-let g:ctrlp_match_window = 'order:ttb,max:20'
-let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 0
-
-let delimitMate_expand_cr = 1
-
-nmap <F8> :TagbarToggle<CR>
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-augroup vimrcEx
-autocmd!
-
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
-
-" When editing a file, always jump to the last known cursor position.
-autocmd BufReadPost *
-\ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-\   exe "normal g`\"" |
-\ endif
-
-" Set syntax highlighting for specific file types
-autocmd BufRead,BufNewFile *.md set filetype=markdown
-
-" Enable spellchecking for Markdown
-autocmd FileType markdown setlocal spell
-
-" Automatically wrap at 80 characters for Markdown
-autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-augroup END
-
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·
-
-:set smartcase
-:set ignorecase
-:set noantialias
-
-syntax on
-syntax enable
-
-let g:solarized_termtrans = 1
-set background=dark
-colorscheme solarized
-set encoding=utf-8
-
-" Highlight line number of where cursor currently is
-hi CursorLineNr guifg=#050505
-
-" Numbers
-set number
-set numberwidth=5
-
-" Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
-
-" Persistent undo
 set undodir=~/.vim/undo/
 set undofile
 set undolevels=1000
 set undoreload=10000
 
-" Tab completion
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+filetype plugin on
+filetype indent on
+set list listchars=tab:\ \ ,trail:·  " Display tabs and trailing spaces visually
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
+
+" ================ Folds ============================
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+" ================ Completion =======================
+
 set wildmode=list:longest,list:full
 set complete=.,w,t
 function! InsertTabWrapper()
@@ -148,8 +123,66 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+function! s:RemoveTrailingWhitespaces()
+  "Save last cursor position
+  let l = line(".")
+  let c = col(".")
+
+  %s/\s\+$//ge
+
+  call cursor(l,c)
+endfunction
+
+" ================ Scrolling ========================
+
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
+" ================ Search ===========================
+
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup
+  let g:grep_cmd_opts = '--line-numbers --noheading'
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" ================ Get Off My Lawn ===========================
+"
+ nnoremap <Left> :echoe "Use h"<CR>
+ nnoremap <Right> :echoe "Use l"<CR>
+ nnoremap <Up> :echoe "Use k"<CR>
+ nnoremap <Down> :echoe "Use j"<CR>
+
+" ============== Plug Ins ==================
+
+
+" ============== Number ==================
+set number
+set numberwidth=5
+
+" ============== Snippets ==================
+
+ let g:snippetsEmu_key = "<S-Tab>""
+
+" ============== Nerdtree ==================
+
+map <F10> :NERDTreeToggle<CR>
+" Current file in nerdtree
+map <F9> :NERDTreeFind<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeWinSize = 30
+
+
