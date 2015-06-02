@@ -4,8 +4,6 @@ I'm The King Of My Castle!
 
 ![vim](https://github.com/bencarothers/.dotfiles/blob/master/screenshot.png)
 
-## Tools to Install
-
 ## install
 
 Run this:
@@ -22,7 +20,9 @@ edit paths in zshrc
 `dot` is a simple script that installs some dependencies, sets sane OS X
 defaults, etc. 
 
-## components
+________________________________________________________________________________
+
+# components
 
 - **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
   available everywhere.
@@ -43,19 +43,48 @@ defaults, etc.
 
 #### bash
 
+Includes a bashrc and bash_profile as a backup and alternative to zsh
+
 #### bin
 
+- **script**: 
+- **script**: 
+- **script**: 
+- **script**: 
+- **script**: 
+- **script**: 
+- **script**: 
+
 #### functions 
+
+- **function**: 
+- **function**: 
+- **function**: 
+- **function**: 
+- **function**: 
+- **function**: 
+- **function**: 
 
 #### git 
 
 #### homebrew
 
+- **brew.sh**: 
+
 #### iterm2 
+
+- **fonts**: 
+- **solarized**: 
 
 #### osx 
 
+- **set_defaults.sh**: 
+
 #### python 
+
+- **pythonrc**: 
+- **plintrx**: 
+- **install.sh**: 
 
 #### system 
 
