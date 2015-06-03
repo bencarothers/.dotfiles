@@ -1,13 +1,17 @@
 # .dotfiles
-
-###                      I'm The King Of My Castle!
 ![vim](https://github.com/bencarothers/.dotfiles/blob/master/bones.png)
+###I'm The King Of My Castle!
 
 ## What's included
 
-My dotfiles repository are both highly modular and also very comprehensive
+My dotfiles repository are both highly modular and also fairly comprehensive.
 
-Aliases, plugins, and settings are placed in separate files to make things easy to find and make changing things as streamlined as possible.
+Aliases, plugins, and settings are placed in separate files to keep everything
+relatively organized and make changing things as streamlined as possible.
+
+This collection of dotfiles is optomized for a Mac machine with Zsh as the 
+primary shell and Vim as the editor; However deviating from these should be
+painless
 
 ### install
 
@@ -27,7 +31,7 @@ defaults, etc.
 
 ________________________________________________________________________________
 
-# components
+# Primary components
 
 - **bin/**: Anything(meant primarily for scripts) in `bin/` is available everywhere.
 
@@ -47,38 +51,51 @@ ________________________________________________________________________________
 
 #### bash
 
-This collection of dotfiles relies a good deal on the machine using zsh, so these files are primarily meant to be a backup or alternative.
+This collection of dotfiles relies a good deal on the machine using zsh, so 
+these files are primarily meant to be a backup or alternative.
 
-This directory includes both a bashrc and a bash_profile, but neither are symlinked initially.
+This directory includes both a bashrc and a bash_profile, but neither are 
+symlinked initially.
 
 #### bin
 
-- **$**: Calls you out when you paste a command from the internet
-- **e**: 
-- **dot**: 
-- **lockUp**: locks your machine 
-- **search**: 
-- **set-defaults**: 
-- **todo**: the most basic todo system available 
+- **$**: A simple script that calls you out when you paste a command from
+the internet.
+
+- **e**: This maps whatever the variable '$EDITOR' is set as to e for easy
+access to your trusty tool.
+
+- **dot**: This script keeps things up to date. This should be run whenever
+you think about it.
+
+- **lockUp**: locks your machine when you go afk.
+
+- **search**: Quick search in a directory for a string.
+
+- **set-defaults**: Runs the osx-defaults script.
+
+- **todo**: the most basic todo system available that I know of.
 
 #### functions 
 
-- **calc**: 
-- **brewHelper**: 
-- **extract**: 
-- **install**: 
-- **cdf**: 
-- **mkd**: 
-- **spotify**: 
+- **calc**: A very simple calculator.
+- **brewHelper**: A set of functions needed for the homebrew script.
+- **extract**: Extracts any compressed file you give it.
+- **install**: Runs all of the install.sh files.
+- **cdf**: Lists only directories.
+- **mkd**: Makes a directory and cd into it.
+- **spotify**: A means of controlling spotify via the command line. 
 
 #### git 
 
-These files make git a lil but easier to use. The directory includes sane aliases and a means for command completion.
-the gitmessage is usesd as a template, which gets included in commit message prompts.
+These files make git a lil bit easier to use. The directory includes sane 
+aliases and a means for command completion. The gitmessage is usesd as
+a template, which gets included in commit message prompts.
 
 #### homebrew
 
-- **brew.sh**: 
+- **brew.sh**: Installs a good deal of the tools and software that I use
+on a daily basis. This script also installs and updates homebrew.
 
 #### iterm2 
 
@@ -97,9 +114,19 @@ the gitmessage is usesd as a template, which gets included in commit message pro
 
 #### system 
 
+- **_path.sh**: 
+- **aliases.sh**: 
+- **env.sh**: 
+- **hushlogin.sh**: 
+
 #### tmux 
 
+Simply maps some keys and configures tmux to be a little more conducive to the other tools.
+
 #### vim 
+
+`vimrc.bundles` includes every plugin I use. I'm currently using `Vundle` to manage them all.
+
+settings are split into categories and kept in the `settings` directory. General config can be found in the `vimrc`.
 ![vim](https://github.com/bencarothers/.dotfiles/blob/master/vim/screenshot.png)
-#### vsh
 
