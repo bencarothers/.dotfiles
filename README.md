@@ -1,9 +1,7 @@
 # .dotfiles
 
-<p align="center">
-    ###I'm The King Of My Castle!
-    ![vim](https://github.com/bencarothers/.dotfiles/blob/master/bones.png)
-</p>
+###                      I'm The King Of My Castle!
+![vim](https://github.com/bencarothers/.dotfiles/blob/master/bones.png)
 
 ## What's included
 
