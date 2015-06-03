@@ -1,10 +1,10 @@
 # .dotfiles
 
-I'm The King Of My Castle!
+###I'm The King Of My Castle!
+![vim](https://github.com/bencarothers/.dotfiles/blob/master/bones.png)
+Remap your Capslock key to Escape
 
-![vim](https://github.com/bencarothers/.dotfiles/blob/master/screenshot.png)
-
-## install
+### install
 
 Run this:
 
@@ -39,7 +39,7 @@ ________________________________________________________________________________
 - **topic/\*.symlink**: Any files ending in `.symlink` symlinked into
   your `$HOME`. 
 
-## Topics 
+### Topics 
 
 #### bash
 
@@ -91,6 +91,6 @@ Includes a bashrc and bash_profile as a backup and alternative to zsh
 #### tmux 
 
 #### vim 
-
+![vim](https://github.com/bencarothers/.dotfiles/blob/master/vim/screenshot.png)
 #### vsh
 
