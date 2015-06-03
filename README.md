@@ -1,8 +1,15 @@
 # .dotfiles
 
-###I'm The King Of My Castle!
-![vim](https://github.com/bencarothers/.dotfiles/blob/master/bones.png)
-Remap your Capslock key to Escape
+<p align="center">
+    ###I'm The King Of My Castle!
+    ![vim](https://github.com/bencarothers/.dotfiles/blob/master/bones.png)
+</p>
+
+## What's included
+
+My dotfiles repository are both highly modular and also very comprehensive
+
+Aliases, plugins, and settings are placed in separate files to make things easy to find and make changing things as streamlined as possible.
 
 ### install
 
@@ -24,10 +31,9 @@ ________________________________________________________________________________
 
 # components
 
-- **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
-  available everywhere.
+- **bin/**: Anything(meant primarily for scripts) in `bin/` is available everywhere.
 
-- **topic/\*.zsh**: Any files ending in `.zsh` get loaded into your
+- **topic/\*.zsh**: Any files ending in `.zsh` are loaded into your
   environment.
 
 - **topic/path.zsh**: Any file named `path.zsh` is loaded first and is
@@ -43,29 +49,34 @@ ________________________________________________________________________________
 
 #### bash
 
-Includes a bashrc and bash_profile as a backup and alternative to zsh
+This collection of dotfiles relies a good deal on the machine using zsh, so these files are primarily meant to be a backup or alternative.
+
+This directory includes both a bashrc and a bash_profile, but neither are symlinked initially.
 
 #### bin
 
-- **script**: 
-- **script**: 
-- **script**: 
-- **script**: 
-- **script**: 
-- **script**: 
-- **script**: 
+- **$**: Calls you out when you paste a command from the internet
+- **e**: 
+- **dot**: 
+- **lockUp**: locks your machine 
+- **search**: 
+- **set-defaults**: 
+- **todo**: the most basic todo system available 
 
 #### functions 
 
-- **function**: 
-- **function**: 
-- **function**: 
-- **function**: 
-- **function**: 
-- **function**: 
-- **function**: 
+- **calc**: 
+- **brewHelper**: 
+- **extract**: 
+- **install**: 
+- **cdf**: 
+- **mkd**: 
+- **spotify**: 
 
 #### git 
+
+These files make git a lil but easier to use. The directory includes sane aliases and a means for command completion.
+the gitmessage is usesd as a template, which gets included in commit message prompts.
 
 #### homebrew
 
@@ -73,12 +84,12 @@ Includes a bashrc and bash_profile as a backup and alternative to zsh
 
 #### iterm2 
 
-- **fonts**: 
-- **solarized**: 
+- **fonts**: A collection of fonts that I like 
+- **solarized**: Both dark and light solarized colors for iterm 
 
 #### osx 
 
-- **set_defaults.sh**: 
+- **set_defaults.sh**: a strong set of defaults courtesty of Mathias 
 
 #### python 
 
