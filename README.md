@@ -4,13 +4,13 @@
 
 ## What's included
 
-My dotfiles repository are both highly modular and also fairly comprehensive.
+My dotfiles repository is both highly modular and also fairly comprehensive.
 
 Aliases, plugins, and settings are placed in separate files to keep everything
 relatively organized and make changing things as streamlined as possible.
 
 This collection of dotfiles is optomized for a Mac machine with Zsh as the 
-primary shell and Vim as the editor; However deviating from these should be
+primary shell and Vim as the editor; However, deviating from these should be
 painless
 
 ### install
@@ -48,14 +48,6 @@ ________________________________________________________________________________
   your `$HOME`. 
 
 ### Topics 
-
-#### bash
-
-This collection of dotfiles relies a good deal on the machine using zsh, so 
-these files are primarily meant to be a backup or alternative.
-
-This directory includes both a bashrc and a bash_profile, but neither are 
-symlinked initially.
 
 #### bin
 
