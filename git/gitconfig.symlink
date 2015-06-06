@@ -27,5 +27,3 @@
         autocorrect = 1
 [commit]
   template = ~/.gitmessage
-[push]
-        default = simple
