@@ -10,11 +10,11 @@ then
   alias la='gls -A --color'
 fi
 
-alias s="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt"
-alias sn="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt next"
-alias sp="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt prev"
+alias s="osascript ~/.dotfiles/functions/spotify/SpotifyControl.scpt"
+alias sn="osascript ~/.dotfiles/functions/spotify/SpotifyControl.scpt next"
+alias sp="osascript ~/.dotfiles/functions/spotify/SpotifyControl.scpt prev"
 # Now playing: Cher - Believe
-alias sb="osascript ~/.dotfiles/functions/spotify/SpotifyControl/SpotifyControl.scpt start spotify:track:2goLsvvODILDzeeiT4dAoR"
+alias sb="osascript ~/.dotfiles/functions/spotify/SpotifyControl.scpt start spotify:track:2goLsvvODILDzeeiT4dAoR"
 
 # Unix
 alias tlf="tail -f"

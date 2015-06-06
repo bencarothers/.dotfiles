@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # include my library helpers for colorized echo and require_brew, etc
-source ../functions/brewHelper
+source ../functions/bru
 
 # Ask for the administrator password upfront
 bot "I need you to enter your sudo password so I can install some things:"
@@ -10,11 +10,9 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-bot "OK, let's roll..."
-
-#####
-# install homebrew
-#####
+################################################################################
+# install homebrew                                                             #
+################################################################################
 
 running "checking homebrew install"
 brew_bin=$(which brew) 2>&1 > /dev/null
@@ -39,7 +37,7 @@ ok
 ###############################################################################
 #Install command-line tools using Homebrew                                    #
 ###############################################################################
-# Make sure we’re using the latest Homebrew
+
 running "updating homebrew"
 brew update
 ok
@@ -57,33 +55,11 @@ fi
 
 bot "installing homebrew command-line tools"
 
-
-# Install GNU core utilities (those that come with OS X are outdated)
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 require_brew coreutils
-# Install some other useful utilities like `sponge`
 require_brew moreutils
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 require_brew findutils
 
-# Install Bash 4
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
-#install bash
-#install bash-completion
-
-# Install RingoJS and Narwhal
-# Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
-#install ringojs
-#install narwhal
-
-# Install other useful binaries
 require_brew ack
-# Beanstalk http://kr.github.io/beanstalkd/
-#require_brew beanstalkd
-# ln -sfv /usr/local/opt/beanstalk/*.plist ~/Library/LaunchAgents
-# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.beanstalk.plist
-
-# dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
 require_brew gawk
 require_brew gifsicle
@@ -96,7 +72,7 @@ require_brew hub
 require_brew imagemagick
 require_brew imagesnap
 require_brew jq
-require_brew maven
+#require_brew maven
 require_brew memcached
 require_brew nmap
 require_brew node
@@ -108,6 +84,7 @@ require_brew ttyrec
 require_brew vim --override-system-vi
 require_brew watch
 require_brew wget --enable-iri
+require_brew zsh
 
 bot "if you would like to start memcached at login, run this:"
 echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
@@ -117,34 +94,46 @@ echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
 ###############################################################################
-bot "installing GUI tools via homebrew casks..."
+
+bot "installing your apps"
 brew tap caskroom/versions > /dev/null 2>&1
 
-
-require_cask adium
-require_cask spotify 
-require_cask skype 
-require_cask kindle 
-require_cask google-chrome 
-require_cask lightpaper 
+# utilities
+require_cask flux
+require_cask spectacle
+require_cask skitch 
+require_cask gyazo
+require_cask disk-inventory-x
+require_cask the-unarchiver
+require_cask screenflow4 
+require_cask rescuetime
+require_cask 1password 
 require_cask cheatsheet
 require_cask bettertouchtool
+require_cask alfred 
+require_cask transmission
 
-# tools
+# dev tools
 require_cask java
 require_cask diffmerge
 require_cask ireadfast
 require_cask iterm2
 require_cask macvim
 require_cask sizeup
+require_cask gpgtools
 require_cask sketchup
-
-require_cask the-unarchiver
-require_cask transmission
-require_cask vlc
 require_cask xquartz
+require_cask lightpaper 
 
-# development browsers
+#fun
+require_cask kindle 
+require_cask calibre 
+require_cask vlc
+require_cask spotify 
+require_cask adium
+require_cask skype 
+
+# browsers
 require_cask firefox
 require_cask google-chrome
 require_cask google-chrome-canary
@@ -153,7 +142,6 @@ require_cask torbrowser
 # virtal machines
 require_cask virtualbox
 
-bot "Alright, cleaning up homebrew cache..."
-# Remove outdated versions from the cellar
+bot "Cleaning up"
 brew cleanup > /dev/null 2>&1
 bot "All clean"

@@ -2,14 +2,11 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Documents/Code
+export PROJECTS=~/Code
 
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
+if [[ -a ~/.secrets ]]
 then
-  source ~/.localrc
+  source ~/.secrets
 fi
 
 # all of our zsh files
