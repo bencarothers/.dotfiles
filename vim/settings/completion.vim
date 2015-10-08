@@ -4,6 +4,7 @@
 
 set wildmode=list:longest,list:full
 set complete=.,w,t
+
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'

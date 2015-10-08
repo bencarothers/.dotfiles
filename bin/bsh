@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+java -cp /Library/Java/Extensions/bsh-2.1.8.jar bsh.Interpreter "$@"

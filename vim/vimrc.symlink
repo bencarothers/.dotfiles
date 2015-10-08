@@ -44,7 +44,7 @@ set undoreload=10000
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
+set shiftwidth=4
 set softtabstop=2
 set tabstop=2
 set expandtab
@@ -57,6 +57,6 @@ set nofoldenable        "dont fold by default
 
 " ================ Custom Settings ========================
 
-for fpath in split(globpath('~/.dotfiles/vim/settings', '*.vim'), '\n')
+for fpath in split(globpath('~/Dotfiles/vim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor

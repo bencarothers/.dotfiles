@@ -8,6 +8,7 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
 fpath=($ZSH/functions $fpath)
+. ~/Dotfiles/zsh/z.sh
 
 autoload -U $ZSH/functions/*(:t)
 
@@ -34,9 +35,7 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-# don't expand aliases _before_ completion has finished
-#   like: git comm-[tab]
-setopt complete_aliases
+setopt complete_aliases # don't expand aliases _before_ completion has finished
 
 zle -N newtab
 
@@ -45,7 +44,7 @@ bindkey '^[^[[C' forward-word
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
-bindkey '^r' history-incremental-search-backward    # [Ctrl-r] - Search backward incrementally for a specified string. The string may begin with ^ to anchor the search to the beginning of the line.
+bindkey '^r' history-incremental-search-backward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
-bindkey -v                                          # Use vi key bindings
+bindkey -v
