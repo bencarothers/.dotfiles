@@ -1,7 +1,6 @@
 # .dotfiles
-![vim](https://github.com/bencarothers/.dotfiles/blob/master/bones.png)
-###I'm The King Of My Castle!
-
+![vim](https://github.com/bencarothers/.dotfiles/blob/master/starwars-yoda.png)
+![vim](./starwars-yoda.png)
 ## What's included
 
 My dotfiles repository is both highly modular and also fairly comprehensive.
