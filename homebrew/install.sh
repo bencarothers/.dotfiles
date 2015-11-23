@@ -58,31 +58,31 @@ bot "installing homebrew command-line tools"
 require_brew coreutils
 require_brew moreutils
 require_brew findutils
-
-require_brew ack
 require_brew dos2unix
-require_brew gawk
-require_brew gifsicle
+
 require_brew git
 require_brew git-flow
+require_brew tig
+require_brew hub
+
+require_brew ack
+require_brew gawk
 require_brew gnupg
 require_brew gnu-sed --default-names
 require_brew homebrew/dupes/grep
-require_brew hub
+
 require_brew imagemagick
 require_brew imagesnap
 require_brew jq
-#require_brew maven
+require_brew maven
 require_brew memcached
 require_brew nmap
 require_brew node
-require_brew redis
-require_brew homebrew/dupes/screen
-require_brew tig
+
+#require_brew redis
 require_brew tree
 require_brew ttyrec
 require_brew vim --override-system-vi
-require_brew watch
 require_brew wget --enable-iri
 require_brew zsh
 
@@ -100,7 +100,6 @@ brew tap caskroom/versions > /dev/null 2>&1
 
 # utilities
 require_cask flux
-require_cask spectacle
 require_cask skitch 
 require_cask gyazo
 require_cask disk-inventory-x
@@ -108,36 +107,28 @@ require_cask the-unarchiver
 require_cask screenflow4 
 require_cask rescuetime
 require_cask 1password 
-require_cask cheatsheet
 require_cask bettertouchtool
 require_cask alfred 
 require_cask transmission
 
 # dev tools
 require_cask java
-require_cask diffmerge
 require_cask ireadfast
 require_cask iterm2
 require_cask macvim
 require_cask sizeup
 require_cask gpgtools
-require_cask sketchup
 require_cask xquartz
 require_cask lightpaper 
 
 #fun
-require_cask kindle 
 require_cask calibre 
 require_cask vlc
 require_cask spotify 
-require_cask adium
 require_cask skype 
 
 # browsers
-require_cask firefox
 require_cask google-chrome
-require_cask google-chrome-canary
-require_cask torbrowser
 
 # virtal machines
 require_cask virtualbox
