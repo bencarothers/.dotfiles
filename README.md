@@ -1,5 +1,5 @@
 # My dotfiles
-![vim](./docs/starwars-yoda.png)
+![vim](./docs/bones.png)
 
 ## What's included
 
