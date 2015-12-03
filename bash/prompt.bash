@@ -1,5 +1,3 @@
-### Prompt Colors
-
 # (https://github.com/gf3/dotfiles)
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color
@@ -54,10 +52,7 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-# Change this symbol to something sweet.
-# (http://en.wikipedia.org/wiki/Unicode_symbols)
-symbol="⚡ "
-
+symbol="⛄️ " 
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 

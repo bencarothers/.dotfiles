@@ -12,8 +12,5 @@ $dots/osx/setdefaults.sh
 # Set OS X defaults
 $dots/tidy/bootstrap
 
-# Upgrade homebrew
-brew update
-
 # Install homebrew packages
 $dots/osx/brewinstall.sh 2>&1
