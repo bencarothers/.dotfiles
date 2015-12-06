@@ -1,7 +1,3 @@
-"============
-" Complete me
-"============
-
 set wildmode=list:longest,list:full
 set complete=.,w,t
 

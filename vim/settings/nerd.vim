@@ -1,6 +1,10 @@
-" Auto open nerd tree on startup
+map <F10> :NERDTreeToggle<CR>
+map <F9> :NERDTreeFind<CR>
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeWinSize = 30
+
 autocmd VimEnter * NERDTree
-" Focus in the main content window
 autocmd VimEnter * wincmd p
-" close NerdTree on :wq
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

@@ -1,8 +1,5 @@
-" ========================================
-" General vim sanity improvements
-" ========================================
 
-" ================ Get Off My Lawn ===========================
+" ====== Get Off My Lawn =======
 
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -42,9 +39,5 @@ nnoremap <leader>. '.
 nnoremap gf :e<cfile><CR>
 nnoremap <C-w>f :sp +e<cfile><CR>
 nnoremap <C-w>gf :tabe<cfile><CR>
-
-" Create window splits 
-nnoremap <silent> vv <C-w>v
-nnoremap <silent> ss <C-w>s
 
 cmap w!! w !sudo tee % >/dev/null

@@ -5,7 +5,6 @@ fi
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/Dotfiles
-export PYTHONSTARTUP=~/.pythonrc.py
 
 # all of our zsh files
 typeset -U config_files

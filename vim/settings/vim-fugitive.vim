@@ -1,7 +1,3 @@
-" The tree buffer makes it easy to drill down through the directories of your
-" git repository, but it’s not obvious how you could go up a level to the
-" parent directory. Here’s a mapping of .. to the above command, but
-" only for buffers containing a git blob or tree
 autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \   nnoremap <buffer> .. :edit %:h<CR> |

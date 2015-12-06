@@ -17,11 +17,11 @@ painless
 Run this:
 
 ```
-cd ~/.dotfiles
+cd ~/dotfiles
 script/bootstrap
 ```
 
-This will symlink the appropriate files in `.dotfiles` to your home directory.
+This will symlink the appropriate files in `dotfiles` to your home directory.
 
 Edit the paths in zshrc
 ________________________________________________________________________________
@@ -29,6 +29,7 @@ ________________________________________________________________________________
 # Primary components
 
 - **bin/**: Anything(meant primarily for scripts) in `bin/` is available everywhere.
+    -[./bin commponents](/bin/bin.md)
 
 - **topic/\*.zsh**: Any files ending in `.zsh` are loaded into your
   environment.

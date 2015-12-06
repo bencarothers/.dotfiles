@@ -1,3 +1,5 @@
+# What's in ./bin
+
 ### $
 
 Runs the command you meant to enter when copying and pasting into the shell

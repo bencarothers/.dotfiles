@@ -6,8 +6,10 @@ fi
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
+export EDITOR=vim
 
 fpath=($ZSH/functions $fpath)
+
 . ~/Dotfiles/zsh/z.sh
 
 autoload -U $ZSH/functions/*(:t)

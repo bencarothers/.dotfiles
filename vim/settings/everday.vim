@@ -1,11 +1,3 @@
-" ============================
-" Shortcuts for everyday tasks
-" ============================
-
-" copy current filename into system clipboard - mnemonic: (c)urrent(f)ilename
-nnoremap <silent> <leader>cf :let @* = expand("%:~")<CR>
-nnoremap <silent> <leader>cn :let @* = expand("%:t")<CR>
-
 "Clear current search highlight by double tapping //
 nmap <silent> // :nohlsearch<CR>
 
@@ -13,4 +5,8 @@ nmap <silent> // :nohlsearch<CR>
 nnoremap <leader>hl :set hlsearch! hlsearch?<CR>
 
 " <leader>hp = html preview
-map <silent> <leader>hp :!open -a Safari %<CR><CR>
+map <silent> <leader>hp :!open -a Chrome %<CR><CR>
+
+" Create window splits 
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s

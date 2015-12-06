@@ -21,9 +21,9 @@ git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo " on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo " on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -43,7 +43,7 @@ need_push () {
   then
     echo " "
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo " with %{$fg_bold[green]%}unpushed%{$reset_color%}"
   fi
 }
 
@@ -62,7 +62,7 @@ function venv() {
         else
             local name=$(basename $VIRTUAL_ENV)
         fi
-        echo "under %{$fg_bold[magenta]%}$name%{$reset_color%} "
+        echo " under %{$fg_bold[magenta]%}$name%{$reset_color%}"
     fi
 }
 
@@ -70,13 +70,5 @@ function battery_charge {
     echo `$battery` 2>/dev/null
 }
 
-PROMPT=$'\nin $(directory_name) $(venv)$(git_dirty)$(need_push)\n› '
+PROMPT=$'\nin $(directory_name)$(git_dirty)$(venv)$(need_push)\n› '
 RPROMPT='$(battery_charge)'
-
-# set_prompt () {
-#   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
-# }
-
-# precmd() {
-#   set_prompt
-# }
