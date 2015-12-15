@@ -16,4 +16,3 @@ alias ze='vim ~/.zshrc'
 alias zr='source ~/.zshrc'
 alias reload!='. ~/.zshrc'
 
-eval "$(thefuck --alias)"

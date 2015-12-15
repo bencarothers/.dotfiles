@@ -88,7 +88,6 @@ require_brew vim --override-system-vi
 require_brew wget --enable-iri
 require_brew zsh
 require_brew tmux 
-require_brew tmuxinator
 require_brew wemux 
 
 require_brew pyenv

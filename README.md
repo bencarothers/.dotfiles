@@ -8,9 +8,9 @@ My dotfiles repository is both highly modular and also fairly comprehensive.
 Aliases, plugins, and settings are placed in separate files to keep everything
 relatively organized and make changing things as streamlined as possible.
 
-This collection of dotfiles is optomized for a Mac machine with Zsh as the 
+This collection of dotfiles is optomized for Mac with Zsh as the 
 primary shell and Vim as the editor; However, deviating from these should be
-painless
+painless.
 
 ### install
 

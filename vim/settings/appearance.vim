@@ -1,8 +1,6 @@
-set smartcase
-set ignorecase
 set noantialias
 set encoding=utf-8
-set list listchars=tab:»·,trail:·" Display extra whitespace"
+set list listchars=tab:»·,trail:·
 
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=darkred

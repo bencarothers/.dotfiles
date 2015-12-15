@@ -1,4 +1,6 @@
 function! s:goyo_enter()
+    NumbersToggle
+    set nonumber
   if has('gui_running')
     set fullscreen
     set background=light
@@ -9,6 +11,8 @@ function! s:goyo_enter()
 endfunction
 
 function! s:goyo_leave()
+    NumbersToggle
+    set number
   if has('gui_running')
     set nofullscreen
     set background=dark
