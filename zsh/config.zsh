@@ -9,10 +9,8 @@ export CLICOLOR=true
 export EDITOR=vim
 
 fpath=($ZSH/functions $fpath)
-
 . ~/Dotfiles/zsh/z.sh
-
-autoload -U $ZSH/functions/*(:t)
+autoload -U $ZSH/bin/*(:t)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000

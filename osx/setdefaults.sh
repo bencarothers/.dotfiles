@@ -12,6 +12,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Kill affected applications                                                  #
 ###############################################################################
 
+for file in ./settings/* 
+do
+    sh $file
+done
+
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
     "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
     "Transmission" "Twitter" "iCal"; do

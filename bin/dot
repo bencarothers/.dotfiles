@@ -1,15 +1,10 @@
 #!/bin/sh
-#
-# dot
-#
-# `dot` handles installation, updates, things like that. Run it periodically
-# to make sure you're on the latest and greatest.
+
 export dots=$HOME/Dotfiles
 
 # Set OS X defaults
 $dots/osx/setdefaults.sh
 
-# Set OS X defaults
 $dots/tidy/bootstrap
 
 # Install homebrew packages
