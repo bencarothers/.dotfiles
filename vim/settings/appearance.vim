@@ -2,8 +2,12 @@ set noantialias
 set encoding=utf-8
 set list listchars=tab:»·,trail:·
 
+set background=dark
+colorscheme seoul256
+hi Normal ctermbg=NONE
+
 let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=darkred
+highlight ColorColumn ctermbg=236
 
 highlight RedundantSpaces ctermbg=yellow guibg=yellow
 match RedundantSpaces /\s\+$\| \+ze\t/
@@ -19,16 +23,4 @@ endif
 
 let g:airline_symbols.space = "\ua0"
 let g:airline_theme='solarized'
-set t_Co=256
-
-" Change color scheme based on time
-if strftime("%H") < 13
-  colorscheme solarized 
-  set background=dark
-else
-  colorscheme seoul256
-endif
-
-
-
 

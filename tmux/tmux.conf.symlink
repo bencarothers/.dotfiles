@@ -1,7 +1,7 @@
 # Bind escape to copy mode
 unbind [
 bind Escape copy-mode
-
+et -g default-terminal "xterm"
 # p = paste
 unbind p
 bind p paste-buffer

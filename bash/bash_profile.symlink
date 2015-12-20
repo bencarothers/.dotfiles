@@ -1,6 +1,0 @@
-export BASH=$HOME/Dotfiles
-export PYTHONSTARTUP=~/.pythonrc.py
-
-source ./prompt.bash
-source ./alias.bash
-
