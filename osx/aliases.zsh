@@ -1,6 +1,7 @@
 # Unix
 colorflag="-G"
-alias l="ls -lF ${colorflag}"
+alias l="ls -F ${colorflag}"
+alias ll="ls -lF ${colorflag}"
 alias la="ls -laF ${colorflag}"
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias ls="command ls ${colorflag}"
