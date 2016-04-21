@@ -73,15 +73,9 @@ require_brew gnupg
 require_brew gnu-sed --default-names
 require_brew homebrew/dupes/grep
 
-require_brew imagemagick
-require_brew imagesnap
-require_brew jq
-#require_brew maven
-require_brew memcached
 require_brew nmap
 require_brew node
 
-#require_brew redis
 require_brew tree
 require_brew ttyrec
 require_brew vim --override-system-vi
@@ -110,7 +104,6 @@ brew tap caskroom/versions > /dev/null 2>&1
 # utilities
 require_cask flux
 require_cask skitch 
-require_cask gyazo
 require_cask cheatsheet 
 require_cask disk-inventory-x
 require_cask the-unarchiver
@@ -127,22 +120,14 @@ require_cask seil
 require_cask java
 require_cask ireadfast
 require_cask iterm2
-require_cask macvim
-require_cask sizeup
 require_cask gpgtools
-require_cask xquartz
 
 #fun
 require_cask calibre 
 require_cask vlc
-require_cask spotify 
-require_cask evernote 
 
 # browsers
 require_cask google-chrome
-
-# virtal machines
-require_cask virtualbox
 
 bot "Cleaning up"
 brew cleanup > /dev/null 2>&1

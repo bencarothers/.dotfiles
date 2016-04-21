@@ -13,6 +13,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias -- -="cd -"
 
+alias e='$EDITOR'
+
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"

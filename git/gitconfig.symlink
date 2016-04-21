@@ -16,18 +16,16 @@
   new = green
 
 [alias]
-  # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
-  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-  snapshots = !git stash list --grep snapshot
-
-  #via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
   recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
-
-  # log
   l = log --graph --date=short
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
   simple = log --pretty=format:\" * %s\"
+  gp='git push origin HEAD'
+  gcm='git commit -m'
+  gcs='git commit -S'
+  gs='git status -sb'
+  undo='git reset --soft HEAD^'
 
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
@@ -51,8 +49,6 @@
   autosetupmerge = true
 
 [push]
-  # 'git push' will push the current branch to its tracking branch
-  # the usual default is to push all branches
   default = upstream
 
 [core]
@@ -63,14 +59,10 @@
   statusHints = false
 
 [diff]
-  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
-  # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
   algorithm = patience
 
 [rerere]
-  # Remember my merges
-  # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
 
 [commit]
