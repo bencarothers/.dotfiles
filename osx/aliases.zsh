@@ -86,7 +86,6 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
-alias tmux="TERM=screen-256color-bce tmux"
 
 # Web Security
 alias intercept='sudo networksetup -setwebproxystate wi-fi on'

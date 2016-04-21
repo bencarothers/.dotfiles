@@ -3,40 +3,24 @@ Plugin 'gmarik/Vundle.vim'
 "syntax
 Plugin 'scrooloose/syntastic'
 
-"tmux
-Plugin 'christoomey/vim-tmux-navigator'
-
 "Formatting
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/Align'
 
-"Searching
-Plugin 'dkprice/vim-easygrep'
-
-"Filetypes
-Plugin 'vim-pandoc/vim-pandoc-syntax' 
-
 "Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
-"Expansion and Completion
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-
 "Python
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'alfredodeza/coveragepy.vim'
 
 "looks
 Plugin 'scrooloose/nerdtree'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'bling/vim-airline'
 Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'blarghmatey/split-expander'
-Plugin 'junegunn/goyo.vim'
 
 " Colors 
 Plugin 'junegunn/seoul256.vim'

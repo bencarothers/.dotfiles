@@ -1,5 +1,0 @@
-update() {
-    local brew="brew update; brew upgrade;"
-    local pip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U -q"
-    sh -c $brew; sudo sh -c $pip
-}

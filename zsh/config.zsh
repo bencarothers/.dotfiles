@@ -7,6 +7,11 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 export EDITOR=vim
+export AWS_ACCESS_KEY_ID=AKIAI7Y5L5POXR6PCWDA
+export AWS_SECRET_KEY=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
+export BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-python
+export MONGO_URI=http://api4trackr.herokuapp.com
+export S3_BUCKET=bartrackr-upload
 
 fpath=($ZSH/functions $fpath)
 . ~/Dotfiles/zsh/z.sh

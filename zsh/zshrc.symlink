@@ -33,3 +33,9 @@ do
 done
 unset config_files
 
+
+export PATH="$PATH:$HOME/.rvm/bin:/Code/OmniDriver-2.40/OOI_HOME" 
+
+# added by travis gem
+[ -f /Users/ben/.travis/travis.sh ] && source /Users/ben/.travis/travis.sh
+export PATH="/usr/local/sbin:$PATH"
